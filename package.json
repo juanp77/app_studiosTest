@@ -1,0 +1,22 @@
+{
+  "name": "app_studiostest",
+  "version": "1.0.0",
+  "description": "test framework for application job",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanp77/app_studiosTest.git"
+  },
+  "author": "javiles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanp77/app_studiosTest/issues"
+  },
+  "homepage": "https://github.com/juanp77/app_studiosTest#readme",
+  "dependencies": {
+    "cypress": "^8.5.0"
+  }
+}
