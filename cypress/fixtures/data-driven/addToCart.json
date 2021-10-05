@@ -1,0 +1,12 @@
+[
+     {
+        "testName": "Add to Cart product single product",
+        "product": "Faded Short Sleeve T-shirts",
+        "price": "$16.51"
+    },
+    {
+        "testName": "Add to Cart multiple products",
+        "product": "Printed Dress",
+        "price": "$26.00"
+    }
+]
