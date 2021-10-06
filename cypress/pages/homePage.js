@@ -1,29 +1,36 @@
 /// <reference types ="Cypress" />
 
-
 export class HomePage {
 
-       
-    addToCart(product){
-            cy.get('#homefeatured').find('li').then(($prod) => {
-                cy.wrap($prod).contains(product)
-                    .invoke('wrap').parentsUntil('.product-container').contains('Add to cart').click()
-            })
 
-        }
+    /**Home Page */
+    addToCart(product) {
+        cy.get('#homefeatured').find('li').then(($prod) => {
+            cy.wrap($prod).contains(product)
+                .invoke('wrap').parentsUntil('.product-container').contains('Add to cart').click()
+        })
 
-    getSuccessfull(){
-        //cy.get('.layer_cart_product').should('be.visible')
+    }
+
+    /**Popup add to cart */
+    getSuccessfull() {
+        cy.get('.layer_cart_product').should('be.visible')
         cy.get('.layer_cart_product > h2').contains('Product successfully added to your shopping cart')
     }
 
-    validateProductPrice(price){
-        //let strPrice = price.toString()
-        cy.log('console price: '+ price)
+    validateProductInCart(product) {
+
+        cy.get('.layer_cart_product_info').contains(product)
+    }
+    validateProductPrice(price) {
         cy.get('#layer_cart_product_price').should('be.be.visible').should('have.text', price)
     }
 
-   
+    clickOnContinueShopping() {
+        cy.get('.button-container .continue').click()
+    }
+
+
 }
 
-    export const homePage = new HomePage();
+export const homePage = new HomePage();

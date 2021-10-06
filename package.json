@@ -19,6 +19,7 @@
   "homepage": "https://github.com/juanp77/app_studiosTest#readme",
   "dependencies": {
     "cypress": "^8.5.0",
+    "cypress-real-events": "^1.5.1",
     "mocha-data-driven": "1.0.1"
   }
 }
