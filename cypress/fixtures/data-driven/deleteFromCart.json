@@ -1,0 +1,14 @@
+[
+    {
+       "testName": "Delete From Cart - Single product",
+       "singleProd":true,
+       "product": ["Faded Short Sleeve T-shirts"],
+       "prodTitle":"Faded Shor..."
+   },
+   {
+       "testName": "Delete From Cart - Multiple products",
+       "singleProd":false,
+       "product": ["Printed Dress","Blouse", "Printed Chiffon Dress"],
+       "prodTitle":"Printed Dr..."
+   }
+]
