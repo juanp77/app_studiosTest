@@ -4,7 +4,7 @@
 export class CheckoutPage {
 
     getPageBreadcrumb() {
-        cy.get('.breadcrumb ').should('contain.text', 'Your shopping cart')
+        cy.get('.breadcrumb', {timeout: 10000}).should('contain.text', 'Your shopping cart')
     }
 
     getProductStock(product) {
@@ -22,12 +22,12 @@ export class CheckoutPage {
     clickOnDeleteProduct(product){
         cy.get('#cart_summary').find('tbody').then(($prod) => {
             cy.wrap($prod).contains(product)
-                .invoke('wrap').parentsUntil('.cart_delete').get('.cart_delete > div').click()
+                .invoke('wrap').parents('.cart_item').children('.cart_delete').children().click()
         })
     }
 
     getEmptyAlert(){
-        cy.get('.alert-warning').should('have.text', 'Your shopping cart is empty.')
+        cy.get('.alert-warning', {timeout: 10000}).should('be.visible').should('have.text', 'Your shopping cart is empty.')
     }
 
 }

@@ -14,7 +14,7 @@ export class HomePage {
 
     /**Popup add to cart */
     getSuccessfull() {
-        cy.get('.layer_cart_product').should('be.visible')
+        cy.get('.layer_cart_product', {timeout: 10000}).should('be.visible')
         cy.get('.layer_cart_product > h2').contains('Product successfully added to your shopping cart')
     }
 

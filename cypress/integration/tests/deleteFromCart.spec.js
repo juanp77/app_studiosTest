@@ -6,7 +6,7 @@ import { checkoutPage } from "../../pages/checkoutPage";
 import { homePage } from "../../pages/homePage";
 
 
-const tests = require('../../fixtures/data-driven/addToCart.json')
+const tests = require('../../fixtures/data-driven/deleteFromCart.json')
 
 
 
@@ -30,10 +30,6 @@ describe('Testing - Add to cart functionality', () => {
                 cy.log(`Home Page - Validate Popup successful title`)
                 homePage.getSuccessfull()
 
-               /*  cy.log(`Home Page - Validate Price`)
-                homePage.validateProductPrice(test.unitPrice[i])
-                homePage.validateProductInCart(test.product[i]) */
-
                 cy.log(`Home Page - Continue on home page`)
                 homePage.clickOnContinueShopping()
             }
@@ -41,27 +37,23 @@ describe('Testing - Add to cart functionality', () => {
             cy.log(`Home Page - Validate that products are displayed on checkout`)
             basePage.isProductInCart(test.prodTitle)
 
-            cy.log(`Home Page - Validate total price of the products`)
-            basePage.getTotal(test.totalPrice)
-
             cy.log(`Home Page - Continue to checkout`)
             basePage.clickOnCheckout()
 
             /**Continuew to checkot */
-            cy.log(`Home Page - Validate availity of the products`)
+            cy.log(`Checkout Page - Validate availity of the products`)
             checkoutPage.getPageBreadcrumb()
 
             for (let i = 0; i < test.product.length; i++) {
-                cy.log(`Home Page - ${test.product[i]} is in stock`)
+                cy.log(`Checkout Page - ${test.product[i]} is in stock`)
                 checkoutPage.getProductStock(test.product[i])
 
+                cy.log(`Checkout Page - Delete ${test.product[i]} from cart`)
                 checkoutPage.clickOnDeleteProduct(test.product[i])
 
             }
-
+            cy.log(`Checkout Page - Validate Empty Cart Alert `)
             checkoutPage.getEmptyAlert()
-
-           
 
 
         });
