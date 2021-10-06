@@ -1,12 +1,18 @@
 [
      {
         "testName": "Add to Cart product single product",
-        "product": "Faded Short Sleeve T-shirts",
-        "price": "$16.51"
+        "singleProd":true,
+        "product": ["Faded Short Sleeve T-shirts"],
+        "prodTitle":"Faded Shor...",
+        "unitPrice": ["$16.51"],
+        "totalPrice":"$18.51"
     },
     {
         "testName": "Add to Cart multiple products",
-        "product": "Printed Dress",
-        "price": "$26.00"
+        "singleProd":false,
+        "product": ["Printed Dress","Blouse"],
+        "prodTitle":"Printed Dr...",
+        "unitPrice": ["$26.00","$27.00"],
+        "totalPrice":"$55.00"
     }
 ]
