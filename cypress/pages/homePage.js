@@ -1,5 +1,7 @@
 /// <reference types ="Cypress" />
 
+import { get } from "lodash"
+
 export class HomePage {
 
 
@@ -14,7 +16,7 @@ export class HomePage {
 
     /**Popup add to cart */
     getSuccessfull() {
-        cy.get('.layer_cart_product', {timeout: 10000}).should('be.visible')
+        cy.get('.layer_cart_product', { timeout: 10000 }).should('be.visible')
         cy.get('.layer_cart_product > h2').contains('Product successfully added to your shopping cart')
     }
 
@@ -30,6 +32,22 @@ export class HomePage {
         cy.get('.button-container .continue').click()
     }
 
+    /**Footer section */
+    scroolToBottom() {
+        cy.scrollTo('bottom')
+    }
+
+    getFooterTitle() {
+        cy.get('#block_contact_infos > div > h4').should('be.visible').should('contain.text', 'Store information')
+    }
+
+    getFooterAdress(info) {
+        cy.get('#block_contact_infos').find('li').first().should(($div) => {
+            const text = $div.text()
+            expect(text).to.include(info)
+
+        })
+    }
 
 }
 
